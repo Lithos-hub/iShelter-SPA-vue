@@ -1,5 +1,5 @@
 <template>
-	<v-container class="fill-height">
+	<v-container class="fill-height" data-testid="hello-world">
 		<v-responsive class="d-flex align-center text-center fill-height">
 			<v-img contain height="300" src="@/assets/logo.svg" />
 
