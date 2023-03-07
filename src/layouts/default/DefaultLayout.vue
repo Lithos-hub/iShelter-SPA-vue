@@ -1,6 +1,6 @@
 <template>
-	<v-card>
-		<v-layout>
+	<div>
+		<v-layout class="relative">
 			<base-navbar />
 			<secondary-navbar />
 			<v-main class="h-screen bg-slate-100">
@@ -8,8 +8,13 @@
 					<router-view />
 				</div>
 			</v-main>
+			<div class="absolute bottom-5 right-5">
+				<v-btn color="primary" icon size="60">
+					<v-icon size="30" color="white" icon="mdi-message-text"></v-icon
+				></v-btn>
+			</div>
 		</v-layout>
-	</v-card>
+	</div>
 </template>
 
 <script lang="ts" setup>

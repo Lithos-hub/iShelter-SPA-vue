@@ -5,7 +5,7 @@
 				<v-avatar size="small">
 					<v-img
 						alt="Avatar"
-						src="https://avatars0.githubusercontent.com/u/9064066?v=4&s=460"
+						src="https://this-person-does-not-exist.com/img/avatar-11326f146110d286731a8bc4b9b072f4.jpg"
 					></v-img>
 				</v-avatar>
 			</v-btn>
@@ -14,9 +14,9 @@
 			<v-card-text>
 				<div class="mx-auto text-center">
 					<v-avatar color="brown">
-						<span class="text-h5">{{ user.initials }}</span>
+						<span class="text-h5">{{ user.name[0] + user.lastName[0] }}</span>
 					</v-avatar>
-					<h3>{{ user.fullName }}</h3>
+					<h3>{{ user.name }}</h3>
 					<p class="text-caption mt-1">
 						{{ user.email }}
 					</p>
@@ -31,11 +31,7 @@
 </template>
 
 <script setup lang="ts">
-const user = {
-	initials: 'JD',
-	fullName: 'John Doe',
-	email: 'john.doe@doe.com',
-};
-</script>
+import { useUserStore } from '@/store/user';
 
-<style scoped></style>
+const { user } = useUserStore();
+</script>

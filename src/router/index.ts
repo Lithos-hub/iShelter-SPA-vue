@@ -9,11 +9,54 @@ const routes = [
 			{
 				path: '',
 				name: 'Home',
-				// route level code-splitting
-				// this generates a separate chunk (about.[hash].js) for this route
-				// which is lazy-loaded when the route is visited.
 				component: () =>
-					import(/* webpackChunkName: "home" */ '@/views/HomeView.vue'),
+					import(/* webpackChunkName: "home" */ '@/views/home/HomeView.vue'),
+			},
+			{
+				path: '/organization',
+				name: 'Organization',
+				component: () =>
+					import(
+						/* webpackChunkName: "home" */ '@/views/organization/OrganizationView.vue'
+					),
+			},
+			{
+				path: '/calendar',
+				name: 'Calendar',
+				component: () =>
+					import(
+						/* webpackChunkName: "home" */ '@/views/calendar/CalendarView.vue'
+					),
+			},
+			{
+				path: '/animals',
+				name: 'Animals',
+				component: () =>
+					import(
+						/* webpackChunkName: "home" */ '@/views/animals/AnimalsView.vue'
+					),
+			},
+			{
+				path: '/stats',
+				name: 'Stats',
+				component: () =>
+					import(/* webpackChunkName: "home" */ '@/views/stats/StatsView.vue'),
+			},
+			{
+				path: '/applications',
+				name: 'Applications',
+				component: () =>
+					import(
+						/* webpackChunkName: "home" */ '@/views/applications/ApplicationsView.vue'
+					),
+			},
+			{
+				path: '/financial',
+				name: 'Financial',
+				component: () =>
+					import(
+						/* webpackChunkName: "home" */ '@/views/financial/FinancialView.vue'
+					),
 			},
 		],
 	},

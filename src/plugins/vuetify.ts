@@ -14,16 +14,9 @@ import { createVuetify } from 'vuetify';
 const myCustomLightTheme = {
 	dark: false,
 	colors: {
-		background: '#FAFBFB',
-		surface: '#FFFFFF',
-		primary: '#FC4B6C',
-		'primary-darken-1': '#3700B3',
-		secondary: '#0f172a',
-		'secondary-darken-1': '#018786',
-		error: '#B00020',
-		info: '#2196F3',
-		success: '#4CAF50',
-		warning: '#FB8C00',
+		primary: '#fc4b6c',
+		secondary: '#fb9778',
+		black: '#0f172a',
 	},
 };
 

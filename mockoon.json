@@ -1,0 +1,90 @@
+{
+  "uuid": "c43d4ca6-50a6-4aae-b24c-83a176261762",
+  "lastMigration": 27,
+  "name": "mockoon",
+  "endpointPrefix": "",
+  "latency": 0,
+  "port": 8000,
+  "hostname": "localhost",
+  "folders": [],
+  "routes": [
+    {
+      "uuid": "ca14d4b3-9734-4ca9-813b-69a1f78c7cbd",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "animals",
+      "responses": [
+        {
+          "uuid": "3ea98459-4de4-41e3-b74d-f5afe624915d",
+          "body": "{\n  data: [\n    {\n      \"name\": \"Bamby\",\n      \"status\": \"adopted\",\n      \"specie\": \"dog\",\n      \"breed\": \"Afghan hound\",\n      \"location\": \"John Doe\",\n      \"id\": 1,\n      \"microchip\": \"N/A\",\n      \"weight\": 8,\n      \"weight_type\": \"kg\",\n      \"date_birth\": 1643238000000,\n      \"intake_condition\": \"healthy\",\n      \"intake_date\": \n      \"microchip_number\": \"924 543 123 655 123\",\n      \"image\": null\n    },\n    {\n      \"name\": \"Neo\",\n      \"status\": \"adoptable\",\n      \"specie\": \"cat\",\n      \"breed\": \"unknown\",\n      \"location\": \"Jane Doe\",\n      \"id\": 2,\n      \"microchip\": \"N/A\",\n      \"weight\": 4.6,\n      \"weight_type\": \"kg\",\n      \"date_birth\": 1643238000000,\n      \"intake_condition\": \"healthy\",\n      \"intake_date\": \n      \"microchip_number\": \"924 543 123 655 123\",\n      \"image\": null\n    },\n  ]\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    }
+  ],
+  "rootChildren": [
+    {
+      "type": "route",
+      "uuid": "ca14d4b3-9734-4ca9-813b-69a1f78c7cbd"
+    }
+  ],
+  "proxyMode": false,
+  "proxyHost": "",
+  "proxyRemovePrefix": false,
+  "tlsOptions": {
+    "enabled": false,
+    "type": "CERT",
+    "pfxPath": "",
+    "certPath": "",
+    "keyPath": "",
+    "caPath": "",
+    "passphrase": ""
+  },
+  "cors": true,
+  "headers": [
+    {
+      "key": "Content-Type",
+      "value": "application/json"
+    },
+    {
+      "key": "Access-Control-Allow-Origin",
+      "value": "*"
+    },
+    {
+      "key": "Access-Control-Allow-Methods",
+      "value": "GET,POST,PUT,PATCH,DELETE,HEAD,OPTIONS"
+    },
+    {
+      "key": "Access-Control-Allow-Headers",
+      "value": "Content-Type, Origin, Accept, Authorization, Content-Length, X-Requested-With"
+    }
+  ],
+  "proxyReqHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "proxyResHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "data": []
+}

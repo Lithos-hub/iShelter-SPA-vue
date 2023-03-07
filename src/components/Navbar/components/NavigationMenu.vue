@@ -1,5 +1,5 @@
 <template>
-	<v-menu>
+	<v-menu v-if="menuItem.items">
 		<template v-slot:activator="{ props, isActive }">
 			<v-btn
 				v-bind="props"
@@ -25,6 +25,11 @@
 			</v-list-item>
 		</v-list>
 	</v-menu>
+	<router-link v-else-if="menuItem.to" :to="menuItem.to">
+		<v-btn class="text-none">
+			{{ menuItem.title }}
+		</v-btn>
+	</router-link>
 </template>
 
 <script setup lang="ts">
@@ -36,7 +41,8 @@ interface Menuitems {
 
 interface Props {
 	title: string;
-	items: Menuitems[];
+	to?: string;
+	items?: Menuitems[];
 }
 
 defineProps<{
