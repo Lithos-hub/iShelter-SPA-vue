@@ -14,6 +14,7 @@ import { createApp } from 'vue';
 import { registerPlugins } from '@/plugins';
 
 import './style.css';
+import './scss/index.scss';
 
 const app = createApp(App);
 
