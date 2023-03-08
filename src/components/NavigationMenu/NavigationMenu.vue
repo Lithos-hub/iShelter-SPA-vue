@@ -25,10 +25,13 @@
 			</v-list-item>
 		</v-list>
 	</v-menu>
-	<router-link v-else-if="menuItem.to" :to="menuItem.to">
-		<v-btn class="text-none">
-			{{ menuItem.title }}
-		</v-btn>
+	<router-link
+		v-else-if="menuItem.to"
+		:to="menuItem.to"
+		class="py-2 rounded-xl duration-200 w-[180px] text-center hover:text-primary-1"
+		active-class="bg-primary-1 hover:text-white"
+	>
+		{{ menuItem.title }}
 	</router-link>
 </template>
 

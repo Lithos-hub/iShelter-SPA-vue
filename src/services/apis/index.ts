@@ -1,0 +1,1 @@
+export { useAnimalsQuery } from './animals';

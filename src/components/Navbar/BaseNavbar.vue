@@ -1,6 +1,14 @@
 <template>
 	<v-app-bar density="compact" color="primary" flat class="text-white px-10">
-		<h1 class="font-bold">iShelter</h1>
+		<router-link to="/" class="w-[110px]">
+			<v-img
+				src="src/assets/logo.png"
+				max-height="50"
+				max-width="110"
+				contain
+				class="bg-white p-2 rounded-xl"
+			/>
+		</router-link>
 
 		<v-spacer></v-spacer>
 
@@ -17,5 +25,5 @@
 </template>
 
 <script lang="ts" setup>
-import BaseAvatarMenu from '@/components/Navbar/components/AvatarMenu.vue';
+import BaseAvatarMenu from '@/components/AvatarMenu/AvatarMenu.vue';
 </script>

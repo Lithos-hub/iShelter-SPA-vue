@@ -16,7 +16,7 @@
 </template>
 
 <script setup lang="ts">
-import CardLayout from '@/components/Card/CardLayout.vue';
+import CardLayout from '@/components/CardLayout/CardLayout.vue';
 
 interface Props {
 	title: string;

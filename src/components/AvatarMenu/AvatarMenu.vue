@@ -1,6 +1,6 @@
 <template>
 	<v-menu min-width="200px" rounded>
-		<template v-slot:activator="{ props }">
+		<template #activator="{ props }">
 			<v-btn icon v-bind="props">
 				<v-avatar size="small">
 					<v-img

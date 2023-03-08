@@ -1,23 +1,19 @@
 <template>
-	<v-app-bar density="compact" color="black" flat class="text-white px-10">
+	<v-app-bar density="compact" color="black" flat class="text-white">
 		<div class="flex gap-5 mx-auto">
 			<NavigationMenu
 				v-for="(item, i) of menuItems"
 				:key="i"
-				:menuItem="item"
+				:menu-item="item"
 			/>
 		</div>
 	</v-app-bar>
 </template>
 
 <script lang="ts" setup>
-import NavigationMenu from '@/components/Navbar/components/NavigationMenu.vue';
+import NavigationMenu from '@/components/NavigationMenu/NavigationMenu.vue';
 
 const menuItems = [
-	{
-		title: 'Inicio',
-		to: '/',
-	},
 	{
 		title: 'Mi organización',
 		to: '/organization',

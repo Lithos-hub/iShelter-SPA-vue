@@ -1,0 +1,12 @@
+.v-chip.v-chip--density-default {
+	@apply bg-primary-1 text-white;
+}
+
+.v-text-field input {
+	@apply font-bold;
+	color: #fc4b6c !important;
+}
+
+.search-input.v-input .v-input__slot {
+	border-radius: 100px;
+}

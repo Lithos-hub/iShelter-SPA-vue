@@ -19,5 +19,5 @@
 
 <script lang="ts" setup>
 import BaseNavbar from '@/components/Navbar/BaseNavbar.vue';
-import SecondaryNavbar from '@/components/Navbar/SecondaryNavbar.vue';
+import SecondaryNavbar from '@/components/SecondaryNavbar/SecondaryNavbar.vue';
 </script>

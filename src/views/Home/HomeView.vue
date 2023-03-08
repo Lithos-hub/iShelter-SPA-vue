@@ -37,7 +37,7 @@
 			<HomeCard color="text-purple-500" title="Nuevos animales" :value="8" />
 			<HomeCard color="text-green-500" title="Adopciones" :value="38" />
 			<HomeCard color="text-blue-500" title="Casas de acogida" :value="16" />
-			<HomeCard color="text-red-500" title="Sacrificados" :value="3" />
+			<HomeCard color="text-red-500" title="Fallecidos" :value="3" />
 		</div>
 	</div>
 </template>
@@ -47,7 +47,7 @@ import { ref } from 'vue';
 
 import { useUserStore } from '@/store/user';
 import HomeCard from '@/views/Home/components/HomeCard.vue';
-import CardLayout from '@/components/Card/CardLayout.vue';
+import CardLayout from '@/components/CardLayout/CardLayout.vue';
 
 const { user } = useUserStore();
 
