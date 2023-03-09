@@ -20,10 +20,10 @@
 			<v-icon>mdi-bell</v-icon>
 		</v-btn>
 
-		<base-avatar-menu />
+		<avatar-menu />
 	</v-app-bar>
 </template>
 
 <script lang="ts" setup>
-import BaseAvatarMenu from '@/components/AvatarMenu/AvatarMenu.vue';
+import AvatarMenu from '@/components/AvatarMenu/AvatarMenu.vue';
 </script>

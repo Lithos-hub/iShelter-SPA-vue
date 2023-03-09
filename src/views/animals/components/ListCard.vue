@@ -1,5 +1,5 @@
 <template>
-	<card-layout class="hover:scale-105 duration-200">
+	<card-layout class="hover:scale-105 duration-200" data-testid="list-card">
 		<v-card class="mx-auto rounded-xl border" max-width="400" elevation="0">
 			<v-img class="align-end text-white" height="225" :src="data.image" cover>
 				<v-card-title class="bg-primary-1 bg-opacity-80">{{

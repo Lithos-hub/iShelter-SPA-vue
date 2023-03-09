@@ -1,5 +1,9 @@
 <template>
-	<div class="p-2 text-center rounded-bl-xl" :class="statusColor()">
+	<div
+		data-testid="status-chip"
+		class="p-2 text-center rounded-bl-xl"
+		:class="statusColor()"
+	>
 		<p class="text-sm mx-auto">{{ animalStatus }}</p>
 	</div>
 </template>

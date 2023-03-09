@@ -739,6 +739,13 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
+"@pinia/testing@^0.0.15":
+  version "0.0.15"
+  resolved "https://registry.yarnpkg.com/@pinia/testing/-/testing-0.0.15.tgz#d6aa75c56d2496c14d0eed67af566d661cfa5f6f"
+  integrity sha512-Ykz5sPUVDphDMssA27+ExPSzxqfn7Y3jax77KA0AChDB6ODu31CnXIwoiUG+U5WA6ey7gzHkZh8wlnAtzVnB8g==
+  dependencies:
+    vue-demi "*"
+
 "@sinclair/typebox@^0.25.16":
   version "0.25.24"
   resolved "https://registry.yarnpkg.com/@sinclair/typebox/-/typebox-0.25.24.tgz#8c7688559979f7079aacaf31aa881c3aa410b718"
@@ -4799,6 +4806,13 @@ v8-to-istanbul@^9.0.1:
     "@jridgewell/trace-mapping" "^0.3.12"
     "@types/istanbul-lib-coverage" "^2.0.1"
     convert-source-map "^1.6.0"
+
+vee-validate@^4.7.4:
+  version "4.7.4"
+  resolved "https://registry.yarnpkg.com/vee-validate/-/vee-validate-4.7.4.tgz#4f7c6833eb663d465191e1583bf6f552b16b1a7b"
+  integrity sha512-pfhKluYimYvSQIiFoIY29NAgl0j24DqPsodlCny/NlOrYbougdjbL1C9yYqmba4Ka3YUY6vOZ0GE2wcwMsKQ5A==
+  dependencies:
+    "@vue/devtools-api" "^6.1.4"
 
 vite-node@0.29.2:
   version "0.29.2"

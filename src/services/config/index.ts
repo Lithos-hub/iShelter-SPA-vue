@@ -1,77 +1,87 @@
-import axios, { AxiosInstance, AxiosResponse } from 'axios';
+import axios, { AxiosHeaders, AxiosInstance } from 'axios';
+import {
+	requestErrorInterceptor,
+	requestInterceptor,
+	responseErrorInterceptor,
+	responseInterceptor,
+} from './interceptors';
 
-class Api {
-	private api: AxiosInstance;
+export class Api {
+	private static instance: unknown;
+	public client!: AxiosInstance;
 
 	constructor() {
-		this.api = axios.create({
-			baseURL: `${import.meta.env.VITE_API_URL}/api/v1/`,
-			headers: {
-				'Content-Type': 'application/json',
-			},
-		});
+		if (!Api.instance) {
+			this.client = axios.create({
+				baseURL: `${import.meta.env.VITE_API_URL}/api/v1/`,
+			});
+			this.client.interceptors.request.use(config => {
+				(config.headers as AxiosHeaders).set(
+					'x-token',
+					localStorage.getItem('token')
+				);
+				return config;
+			});
+
+			this.client.interceptors.request.use(
+				requestInterceptor,
+				requestErrorInterceptor
+			);
+			this.client.interceptors.response.use(
+				responseInterceptor,
+				responseErrorInterceptor
+			);
+
+			Api.instance = this;
+		}
+
+		return Api.instance as Api;
 	}
 
-	get instance() {
-		return this.api;
+	get get() {
+		return this.client.get;
 	}
 
-	public async get<T>(url: string, params?: any): Promise<AxiosResponse<T>> {
-		const response: AxiosResponse<T> = await this.api.get(url, { params });
-		return this.handleResponse<T>(response);
+	get post() {
+		return this.client.post;
 	}
 
-	public async post<T>(url: string, data: any): Promise<AxiosResponse<T>> {
-		const response: AxiosResponse<T> = await this.api.post(url, data);
-		return this.handleResponse<T>(response);
+	get patch() {
+		return this.client.patch;
 	}
 
-	public async put<T>(url: string, data: any): Promise<AxiosResponse<T>> {
-		const response: AxiosResponse<T> = await this.api.put(url, data);
-		return this.handleResponse<T>(response);
+	get put() {
+		return this.client.put;
 	}
 
-	public async delete<T>(url: string): Promise<AxiosResponse<T>> {
-		const response: AxiosResponse<T> = await this.api.delete(url);
-		return this.handleResponse<T>(response);
-	}
-
-	private handleResponse<T>(response: AxiosResponse<T>): AxiosResponse<T> {
-		return {
-			data: response.data,
-			status: response.status,
-			statusText: response.statusText,
-			headers: response.headers,
-			config: response.config,
-		};
+	get delete() {
+		return this.client.delete;
 	}
 
 	public setAuthorization() {
 		const token = localStorage.getItem('token');
 		if (token) {
-			this.api.defaults.headers.common.Authorization = `Bearer ${token}`;
+			this.client.defaults.headers.common.Authorization = `Bearer ${token}`;
 		} else {
 			this.removeAuthorization();
 		}
 	}
 
 	public removeAuthorization() {
-		if (this.api.defaults.headers.common?.Authorization) {
-			delete this.api.defaults.headers.common?.Authorization;
+		if (this.client.defaults.headers.common?.Authorization) {
+			delete this.client.defaults.headers.common?.Authorization;
 		}
 	}
 
 	// HEADER WHEN UPLOADING FILES
 	public setFormHeader() {
-		this.api.defaults.headers.post['Content-Type'] = 'multipart/form-data';
-		this.api.defaults.headers.post.Accept = 'multipart/form-data';
+		this.client.defaults.headers.post['Content-Type'] = 'multipart/form-data';
+		this.client.defaults.headers.post.Accept = 'multipart/form-data';
 	}
 
 	// HEADER WHEN ANY OTHERS REQUESTS
 	public setJsonHeader() {
-		this.api.defaults.headers.post['Content-Type'] = 'application/json';
-		this.api.defaults.headers.post.Accept = 'application/json';
+		this.client.defaults.headers.post['Content-Type'] = 'application/json';
+		this.client.defaults.headers.post.Accept = 'application/json';
 	}
 }
-
-export default new Api();

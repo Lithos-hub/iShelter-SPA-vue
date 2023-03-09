@@ -8,5 +8,24 @@
 }
 
 .search-input.v-input .v-input__slot {
-	border-radius: 100px;
+	padding: 0 !important;
+	background-color: white !important;
+}
+
+.v-field {
+	padding: 0 !important;
+	background-color: white !important;
+}
+
+.v-field__overlay {
+	@apply bg-white p-0;
+}
+
+.v-field__append-inner {
+	@apply absolute -right-2 px-10 h-full bg-primary-1 rounded-r-xl;
+
+	& i {
+		@apply absolute w-[40px] right-0;
+		color: white;
+	}
 }

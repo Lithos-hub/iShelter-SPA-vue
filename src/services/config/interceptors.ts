@@ -1,32 +1,42 @@
-import { AxiosError, AxiosResponse } from 'axios';
+import { useSnackbarStore } from '@/components/BaseSnackbar/store';
+import { useUserStore } from '@/store/user';
+import { AxiosResponse, InternalAxiosRequestConfig } from 'axios';
+// import { useErrorHandle } from '../utils';
 
-import API from './index';
+export const requestInterceptor = (
+	config: InternalAxiosRequestConfig<any>
+): InternalAxiosRequestConfig<any> => {
+	// logic here
+	return config;
+};
 
-// Interceptor de petición
-API.instance.interceptors.request.use(
-	config => {
-		// Agregar el token de autenticación a la cabecera de la petición
-		const token = localStorage.getItem('token');
-		if (token) {
-			config.headers.Authorization = `Bearer ${token}`;
-		}
-		return config;
-	},
-	(error: AxiosError) => {
-		return Promise.reject(error);
+export const requestErrorInterceptor = (
+	error: any
+): Promise<InternalAxiosRequestConfig<any>> => {
+	// logic here
+	return Promise.reject(error);
+};
+
+export const responseInterceptor = (
+	response: AxiosResponse<any>
+): AxiosResponse<any> => {
+	// logic here
+	return response;
+};
+
+export const responseErrorInterceptor = (
+	error: any
+): Promise<AxiosResponse<any>> => {
+	const { showSnackbar } = useSnackbarStore();
+	const { logout } = useUserStore();
+
+	// showSnackbar('error', useErrorHandle(error as AxiosError));
+	showSnackbar('error', error.message);
+	switch (error.response?.status) {
+		case 403:
+			logout();
+			return Promise.reject(error.message);
 	}
-);
 
-// Interceptor de respuesta
-API.instance.interceptors.response.use(
-	(response: AxiosResponse) => {
-		return response.data;
-	},
-	(error: AxiosError) => {
-		if (error.response?.status === 401) {
-			// Redirigir al usuario a la página de inicio de sesión si no está autenticado
-			window.location.href = '/login';
-		}
-		return Promise.reject(error);
-	}
-);
+	return Promise.reject(error);
+};

@@ -10,4 +10,9 @@ export const useUserStore = defineStore('user', {
 			email: 'jane.doe@example.com',
 		},
 	}),
+	actions: {
+		logout() {
+			console.log('Logout');
+		},
+	},
 });
